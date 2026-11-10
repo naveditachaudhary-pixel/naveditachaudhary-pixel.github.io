@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@300;400;500&family=Geist+Mono:wght@400&display=swap" rel="stylesheet" />
+    <title>How Rehearsal works</title>
+    <meta name="description" content="Why business changes need a staging environment, how Rehearsal replays them, and where the idea goes next." />
+    <script type="module" crossorigin src="./assets/styles-DGXGsOWo.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/styles-hGUxJqAB.css">
+  </head>
+  <body>
+    <main class="article">
+      <p class="back"><a href="./">← Back to the prototype</a></p>
+      <p class="eyebrow">Rehearsal · product concept</p>
+      <h1>A staging environment <em>for the business.</em></h1>
+
+      <h2>The problem</h2>
+      <p>When engineers change software, the change goes through a staging environment, automated tests and a staged rollout, and it can be rolled back. When a business changes how it works, it usually gets none of that. A new pricing rule, a revised commission plan, a system migration or a new data mapping often goes straight to production, and the first sign of a problem is a customer complaint, a report that doesn't add up, or records rejected by the new system.</p>
+      <p>These changes aren't small. They decide what customers pay, what data survives a migration and what shows up in finance reports. Teams usually check them with a few hand-picked examples in a spreadsheet, which rarely include the odd cases that cause trouble.</p>
+
+      <h2>The idea</h2>
+      <p>Rehearsal answers one question before a change ships: <b>what would have happened if this change had been live?</b></p>
+      <ol>
+        <li><b>Replay.</b> Take real past records, such as last quarter's orders or every customer being migrated, and run them through today's rules and the proposed rules.</li>
+        <li><b>Diff.</b> Compare the two results record by record: which values change, by how much, and in which direction.</li>
+        <li><b>Blast radius.</b> Roll the differences up into what decision-makers care about: totals, who is affected most (by segment, region or source system), and which records start or stop passing the checks the business relies on.</li>
+        <li><b>Decide.</b> Ship, adjust the rules and rehearse again, or stop. Export the impact report to share with the people who sign off.</li>
+      </ol>
+      <p class="callout">In the sample migration, the improved mapping fixes 406 records the new system would have rejected. Rehearsal also shows that the new "PENDING" status makes 48 other records fail a check they passed before. That's the kind of surprise that usually shows up after go-live.</p>
+
+      <h2>What the prototype does</h2>
+      <ul>
+        <li>Rules are written in a small formula language, similar to spreadsheet formulas, so business analysts can read and edit them. Formulas are parsed and evaluated safely, and no code is ever executed.</li>
+        <li><b>Checks</b> express what must stay true (for example, "every active customer has an email"), and Rehearsal counts which records start or stop failing them.</li>
+        <li>Everything runs in the browser. Uploaded files never leave the visitor's tab, which matters for the kind of data these changes touch.</li>
+        <li>Two made-up scenarios: a pricing change for an online store, and a field-mapping change for a CRM migration.</li>
+      </ul>
+
+      <h2>What it doesn't do (yet)</h2>
+      <ul>
+        <li><b>It assumes behaviour stays the same.</b> If free shipping moves from $50 to $75, some customers will add an item to qualify. Replay shows the impact on the orders that actually happened. That's the right starting point, but it isn't a forecast.</li>
+        <li><b>Rules have to be written down.</b> Real business logic is spread across systems, spreadsheets and people's heads. Capturing it is the hardest part of the full product.</li>
+        <li><b>One table at a time.</b> The prototype replays a single file. Real changes ripple across systems.</li>
+      </ul>
+
+      <h2>Where it goes next</h2>
+      <table>
+        <thead><tr><th>Phase</th><th>What it adds</th></tr></thead>
+        <tbody>
+          <tr><td><b>1 · Migration rehearsal</b></td><td>Connect to the source and target systems, replay real records through the proposed field mappings, and reconcile counts and totals before cut-over. Migrations are a sharp starting point: they have budgets, deadlines and a clear cost when they go wrong.</td></tr>
+          <tr><td><b>2 · Rule-change rehearsal</b></td><td>Go beyond migrations to any rule or configuration change: pricing tables, approval thresholds, routing logic. Every proposed change gets an automatic impact report.</td></tr>
+          <tr><td><b>3 · Continuous change assurance</b></td><td>A map of how systems depend on each other, impact reports attached to change requests automatically, and monitored rollouts that can roll back. At this point, business changes get the same safety net as software releases.</td></tr>
+        </tbody>
+      </table>
+
+      <h2>How it compares</h2>
+      <p>Pieces of this exist, but each covers one slice of the problem:</p>
+      <ul>
+        <li><b>Process mining</b> tools show how work actually happened. Rehearsal asks what <i>would</i> happen under different rules.</li>
+        <li><b>Data-diff tools</b> compare datasets before data-pipeline changes ship, for data engineers. Rehearsal compares business outcomes, for the people who own the rules.</li>
+        <li><b>Feature flags and staged rollouts</b> protect software releases, not changes to business rules and data.</li>
+        <li><b>Sandboxes inside a single product</b> let you test changes in that one system, but not across the others it feeds.</li>
+      </ul>
+      <p>Rehearsal's bet is that "change anything, see the impact first" deserves its own category: <b>change assurance</b>.</p>
+
+      <p class="back" style="margin-top: 48px"><a href="./">← Try the prototype</a> · <a href="https://github.com/naveditachaudhary-pixel/rehearsal">Code on GitHub</a> · <a href="https://naveditachaudhary-pixel.github.io/">Portfolio</a></p>
+    </main>
+  </body>
+</html>
