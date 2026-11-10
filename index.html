@@ -616,8 +616,9 @@ const PROJECTS = [
   { cat: "Data", title: "Weekly Pipeline Report Automation", repo: null, caseStudy: "Work project at Ascendum · code and data are private",
     desc: "Turns raw CRM opportunity exports for the US and India pipelines into a formatted weekly Excel report. It applies the reporting rules automatically: deal-size thresholds, won-deal handling, stage rollups, and week-over-week flags for new deals, probability changes and pushed close dates. Includes automated environment setup on Windows.",
     tags: ["Python", "Excel", "Automation"] },
-  { cat: "Product", title: "Rehearsal", repo: null, caseStudy: "Product concept",
-    desc: "A business staging environment. Software teams test changes before they go live; business operations usually can't. Rehearsal would replay a change, like a system migration or a new pricing rule, against past transactions and show what would break before it ships. I developed the blueprint: architecture, a phased MVP and go-to-market.",
+  { cat: "Product", title: "Rehearsal", repo: null, caseStudy: "Product concept · working prototype",
+    demo: "https://naveditachaudhary-pixel.github.io/rehearsal/",
+    desc: "A business staging environment. Software teams test changes before they go live; business operations usually can't. Rehearsal would replay a change, like a system migration or a new pricing rule, against past transactions and show what would break before it ships. I developed the blueprint (architecture, a phased MVP and go-to-market) and built a working prototype that replays a pricing change and a system migration.",
     tags: ["Product strategy", "Change assurance", "Migrations"] },
   { cat: "Web", title: "Pulsetide", repo: "pulsetide",
     demo: "https://naveditachaudhary-pixel.github.io/pulsetide/",
@@ -782,7 +783,7 @@ function renderList(cat) {
       <div class="tags">${p.tags.map(esc).join("  ·  ")}${p.repo ? "" : `<span class="soon">  ·  ${p.caseStudy ? esc(p.caseStudy) : "Repository coming soon"}</span>`}</div>`;
     return p.repo
       ? `<li class="item"><a href="${esc(repoUrl(p.repo))}" target="_blank" rel="noopener" data-title="${esc(p.title)}" data-cursor="View repo ↗">${inner}</a>${p.demo ? `<a class="u demo-link" href="${esc(p.demo)}" target="_blank" rel="noopener" data-title="${esc(p.title)} demo">Try the demo ↗</a>` : ""}</li>`
-      : `<li class="item" data-title="${esc(p.title)}"><div class="norepo">${inner}</div></li>`;
+      : `<li class="item" data-title="${esc(p.title)}"><div class="norepo">${inner}</div>${p.demo ? `<a class="u demo-link" href="${esc(p.demo)}" target="_blank" rel="noopener" data-title="${esc(p.title)} demo">Try the demo ↗</a>` : ""}</li>`;
   }).join("");
 }
 document.getElementById("list").addEventListener("click", e => {
