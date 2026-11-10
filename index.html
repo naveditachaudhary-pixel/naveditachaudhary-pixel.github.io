@@ -1,0 +1,1236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Navedita Chaudhary Portfolio</title>
+<meta name="description" content="Navedita Chaudhary: AI and data product builder. MS Information Systems, University of Cincinnati.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Navedita Chaudhary: Building AI that people can trust">
+<meta property="og:description" content="Product and data analyst who builds AI products. Cosignal, MLOps, RAG and more.">
+<meta property="og:url" content="https://naveditachaudhary-pixel.github.io/">
+<meta property="og:image" content="https://naveditachaudhary-pixel.github.io/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#fbfaf8">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23161616'/%3E%3Ctext x='32' y='45' text-anchor='middle' font-family='Georgia,serif' font-style='italic' font-size='40' fill='%23fbfaf8'%3En%3C/text%3E%3Ccircle cx='47' cy='44' r='3' fill='%237fc4a0'/%3E%3C/svg%3E">
+<!-- Visitor analytics (GoatCounter: free, no cookies). Change "navedita" if you pick a different code at goatcounter.com. -->
+<script data-goatcounter="https://navedita.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@300;400;500&family=Geist+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+/* Layout idea: a quiet editorial column. The portfolio is itself a Cosignal demo:
+   the visitor co-signs entry, and a sealed audit log records their visit. */
+:root {
+  --bg: #fbfaf8;
+  --paper: #ffffff;
+  --ink: #161616;
+  --muted: #77736d;
+  --line: #e7e4df;
+  --accent: #3b4a6b;
+  --ok: #2f6b4f;
+  --no: #9a3b2f;
+  --display: "Instrument Serif", "Iowan Old Style", Georgia, serif;
+  --body: "Geist", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --mono: "Geist Mono", ui-monospace, Menlo, Consolas, monospace;
+  color-scheme: light;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { transition: none !important; animation: none !important; } }
+body { margin: 0; background: var(--bg); color: var(--ink); font-family: var(--body); font-weight: 300; font-size: 16.5px; line-height: 1.7; -webkit-font-smoothing: antialiased; }
+a { color: inherit; text-decoration: none; }
+a:focus-visible, button:focus-visible, input:focus-visible { outline: 1px solid var(--ink); outline-offset: 4px; }
+h1, h2, h3 { font-family: var(--display); font-weight: 400; line-height: 1.05; margin: 0; text-wrap: balance; }
+.wrap { max-width: 920px; margin: 0 auto; padding: 0 28px; }
+.label { font-size: 0.72rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); font-weight: 400; }
+.mono { font-family: var(--mono); font-size: 0.78rem; }
+.u { border-bottom: 1px solid var(--line); padding-bottom: 1px; transition: border-color .2s ease; }
+.u:hover { border-color: var(--ink); }
+
+/* Nav */
+nav .wrap { display: flex; justify-content: space-between; align-items: center; padding-top: 30px; padding-bottom: 30px; gap: 20px; }
+.brand { font-family: var(--display); font-size: 1.45rem; }
+.navlinks { display: flex; gap: 28px; font-size: 0.9rem; color: var(--muted); }
+.navlinks a:hover { color: var(--ink); }
+@media (max-width: 680px) { .navlinks { display: none; } }
+
+/* Hero */
+.hero { padding: 64px 0 96px; }
+.hero .wrap { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 56px; align-items: center; }
+@media (max-width: 860px) { .hero .wrap { grid-template-columns: 1fr; gap: 44px; } }
+.hero h1 { font-size: clamp(3rem, 7.5vw, 5.6rem); letter-spacing: -0.02em; margin-top: 20px; }
+.hero h1 em { color: var(--muted); }
+.hero p { font-size: 1.1rem; color: var(--muted); max-width: 30em; margin: 26px 0 32px; }
+.hero p strong { color: var(--ink); font-weight: 400; }
+.links { display: flex; gap: 26px; flex-wrap: wrap; font-size: 0.95rem; }
+.links a { display: inline-block; }
+
+/* Approval card */
+.req { background: var(--paper); border: 1px solid var(--line); border-radius: 4px; padding: 26px; position: relative; box-shadow: 0 30px 60px -40px rgba(22,22,22,.35); }
+.req .top { display: flex; justify-content: space-between; align-items: center; color: var(--muted); margin-bottom: 18px; gap: 12px; }
+.status { font-family: var(--mono); font-size: 0.7rem; letter-spacing: .06em; text-transform: uppercase; padding: 3px 8px; border: 1px solid currentColor; border-radius: 99px; }
+.status.pending { color: var(--accent); }
+.status.approved { color: var(--ok); }
+.status.rejected { color: var(--no); }
+.req h2 { font-size: 1.9rem; margin-bottom: 14px; }
+.req dl { margin: 0 0 22px; display: grid; gap: 6px; border-top: 1px solid var(--line); padding-top: 14px; }
+.req dl div { display: flex; justify-content: space-between; gap: 16px; }
+.req dt { color: var(--muted); }
+.req dd { margin: 0; text-align: right; }
+.actions { display: flex; gap: 10px; flex-wrap: wrap; }
+.btn { font: inherit; font-size: 0.92rem; font-weight: 400; padding: 10px 18px; border-radius: 99px; border: 1px solid var(--ink); background: transparent; color: var(--ink); cursor: pointer; transition: background .2s ease, color .2s ease; }
+.btn.solid { background: var(--ink); color: var(--bg); }
+.btn:hover { background: var(--ink); color: var(--bg); }
+.btn[disabled] { opacity: .35; cursor: default; }
+.btn[disabled]:hover { background: transparent; color: var(--ink); }
+.btn.solid[disabled]:hover { background: var(--ink); color: var(--bg); }
+.req .note { color: var(--muted); font-size: 0.88rem; margin: 14px 0 0; min-height: 1.5em; }
+.stamp { position: absolute; right: 22px; top: 62px; font-family: var(--display); font-style: italic; font-size: 1.5rem; color: var(--ok); border: 1.5px solid var(--ok); padding: 2px 14px; border-radius: 4px; transform: rotate(-8deg) scale(1.6); opacity: 0; pointer-events: none; transition: transform .35s cubic-bezier(.2,1.4,.4,1), opacity .2s ease; }
+.stamp.on { opacity: 1; transform: rotate(-8deg) scale(1); }
+.stamp.no { color: var(--no); border-color: var(--no); }
+
+/* Stats */
+.hero .wrap.statwrap { display: block; }
+.stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 28px; padding: 40px 0 0; }
+@media (max-width: 680px) { .stats { grid-template-columns: 1fr 1fr; } }
+.stat { border-top: 1px solid var(--ink); padding-top: 14px; }
+.stat b { display: block; font-family: var(--display); font-weight: 400; font-size: 2.6rem; line-height: 1; margin-bottom: 6px; font-variant-numeric: tabular-nums; }
+.stat span { color: var(--muted); font-size: 0.88rem; }
+
+/* Sections */
+section { padding: 90px 0; border-top: 1px solid var(--line); }
+.head { display: grid; grid-template-columns: 180px 1fr; gap: 32px; margin-bottom: 44px; align-items: baseline; }
+.head h2 { font-size: clamp(2.2rem, 4.5vw, 3rem); }
+.head p { grid-column: 2; margin: 8px 0 0; color: var(--muted); max-width: 34em; }
+@media (max-width: 680px) { .head { grid-template-columns: 1fr; gap: 10px; } .head p { grid-column: 1; } }
+
+/* Featured */
+.featured h3 { font-size: clamp(2.6rem, 6vw, 4rem); margin: 14px 0 22px; }
+.featured p { max-width: 36em; margin: 0 0 16px; }
+.featured .muted { color: var(--muted); }
+.steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 28px; margin: 44px 0 40px; padding: 0; list-style: none; counter-reset: s; }
+@media (max-width: 760px) { .steps { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 420px) { .steps { grid-template-columns: 1fr; } }
+.steps li { counter-increment: s; border-top: 1px solid var(--ink); padding-top: 14px; font-size: 0.92rem; color: var(--muted); }
+.steps li::before { content: counter(s, decimal-leading-zero); display: block; font-family: var(--display); font-size: 1.5rem; color: var(--ink); margin-bottom: 6px; }
+.steps strong { display: block; color: var(--ink); font-weight: 400; margin-bottom: 2px; }
+
+/* Projects */
+.filters { display: flex; gap: 22px; flex-wrap: wrap; margin-bottom: 18px; }
+.filters button { font: inherit; font-size: 0.9rem; background: none; border: 0; padding: 4px 0; color: var(--muted); cursor: pointer; border-bottom: 1px solid transparent; }
+.filters button:hover { color: var(--ink); }
+.filters button[aria-pressed="true"] { color: var(--ink); border-bottom-color: var(--ink); }
+.filters sup { font-size: 0.65rem; margin-left: 2px; }
+.list { list-style: none; margin: 0; padding: 0; }
+.item a { display: grid; grid-template-columns: 1fr auto; gap: 6px 24px; padding: 26px 0; border-top: 1px solid var(--line); transition: padding .25s ease; }
+.item:last-child a, .item:last-child .norepo { border-bottom: 1px solid var(--line); }
+.item .norepo { display: grid; grid-template-columns: 1fr auto; gap: 6px 24px; padding: 26px 0; border-top: 1px solid var(--line); }
+.item .norepo h3 { font-size: 1.75rem; }
+.item .norepo p { grid-column: 1 / -1; margin: 0; color: var(--muted); max-width: 40em; }
+.item .norepo .tags { grid-column: 1 / -1; font-size: 0.8rem; color: var(--accent); }
+.item .soon { color: var(--muted); }
+.item .case { grid-column: 1 / -1; max-width: 40em; margin: 4px 0 2px; }
+.item .case summary { cursor: pointer; width: fit-content; font-size: 0.9rem; color: var(--ink); text-decoration: underline; text-underline-offset: 3px; text-decoration-color: var(--line); list-style: none; }
+.item .case summary::-webkit-details-marker { display: none; }
+.item .case summary::after { content: " ↓"; color: var(--muted); }
+.item .case[open] summary::after { content: " ↑"; }
+.item .case summary:hover { text-decoration-color: var(--ink); }
+.item .case dl { display: grid; grid-template-columns: 8.5em 1fr; gap: 8px 16px; margin: 14px 0 4px; font-size: 0.92rem; }
+.item .case dt { color: var(--ink); font-weight: 500; }
+.item .case dd { margin: 0; color: var(--muted); }
+@media (max-width: 600px) { .item .case dl { grid-template-columns: 1fr; gap: 2px; } .item .case dd { margin-bottom: 8px; } }
+.item a:hover { padding-left: 10px; }
+.item h3 { font-size: 1.75rem; }
+.item .cat { align-self: center; text-align: right; }
+.item p { grid-column: 1 / -1; margin: 0; color: var(--muted); max-width: 40em; }
+.item .tags { grid-column: 1 / -1; font-size: 0.8rem; color: var(--accent); }
+.item .arrow { display: inline-block; transition: transform .25s ease; margin-left: 6px; }
+.item a:hover .arrow { transform: translateX(4px); }
+
+/* Ask */
+.ask { background: var(--paper); border: 1px solid var(--line); border-radius: 4px; padding: 28px; }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 22px; }
+.chip { font: inherit; font-size: 0.88rem; padding: 7px 14px; border-radius: 99px; border: 1px solid var(--line); background: var(--bg); color: var(--ink); cursor: pointer; transition: border-color .2s ease; }
+.chip:hover { border-color: var(--ink); }
+.thread { display: grid; gap: 18px; max-height: 420px; overflow-y: auto; margin-bottom: 20px; }
+.q { justify-self: end; max-width: 80%; background: var(--ink); color: var(--bg); padding: 9px 16px; border-radius: 18px 18px 4px 18px; font-size: 0.95rem; }
+.a { max-width: 90%; }
+.a .who { margin-bottom: 4px; }
+.a p { margin: 0; }
+.askform { display: flex; gap: 10px; border-top: 1px solid var(--line); padding-top: 20px; }
+.askform input { flex: 1; min-width: 0; font: inherit; font-size: 0.95rem; padding: 10px 16px; border-radius: 99px; border: 1px solid var(--line); background: var(--bg); color: var(--ink); }
+.ask .fine { color: var(--muted); font-size: 0.8rem; margin: 12px 0 0; }
+
+/* Rows */
+.rows { list-style: none; margin: 0; padding: 0; }
+.row { display: grid; grid-template-columns: 180px 1fr; gap: 32px; padding: 26px 0; border-top: 1px solid var(--line); }
+.row:first-child { border-top: 0; padding-top: 0; }
+@media (max-width: 680px) { .row { grid-template-columns: 1fr; gap: 6px; } }
+.row .when { color: var(--muted); font-size: 0.9rem; font-variant-numeric: tabular-nums; }
+.row h3 { font-size: 1.5rem; }
+.row .org { color: var(--muted); font-size: 0.92rem; margin: 2px 0 10px; }
+.row p { margin: 0; max-width: 38em; }
+
+.ach { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; }
+@media (max-width: 680px) { .ach { grid-template-columns: 1fr; gap: 36px; } }
+.ach .big { font-family: var(--display); font-size: 3.6rem; line-height: 1; font-style: italic; }
+.ach h3 { font-size: 1.4rem; margin: 14px 0 8px; }
+.ach p { margin: 0; color: var(--muted); }
+
+.contact h2 { font-size: clamp(2.8rem, 7vw, 4.8rem); letter-spacing: -0.02em; max-width: 12em; margin-top: 22px; }
+.contact h2 em { color: var(--muted); }
+.contact p { color: var(--muted); margin: 26px 0 8px; }
+.contact .email { font-family: var(--display); font-size: clamp(1.4rem, 3.5vw, 2rem); overflow-wrap: anywhere; display: inline-block; margin-bottom: 34px; }
+footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; padding-top: 30px; padding-bottom: 90px; border-top: 1px solid var(--line); color: var(--muted); font-size: 0.85rem; }
+
+/* Live audit log */
+.audit { position: fixed; right: 20px; bottom: 20px; width: 330px; max-width: calc(100vw - 40px); background: var(--paper); border: 1px solid var(--line); border-radius: 4px; box-shadow: 0 20px 50px -30px rgba(22,22,22,.45); z-index: 20; font-family: var(--mono); font-size: 0.72rem; }
+.audit button.toggle { all: unset; box-sizing: border-box; width: 100%; display: flex; justify-content: space-between; align-items: center; gap: 10px; padding: 11px 14px; cursor: pointer; color: var(--ink); }
+.audit button.toggle:focus-visible { outline: 1px solid var(--ink); outline-offset: -3px; }
+.live { display: inline-flex; align-items: center; gap: 7px; }
+.live i { width: 6px; height: 6px; border-radius: 50%; background: var(--ok); animation: pulse 2s infinite; }
+@keyframes pulse { 50% { opacity: .25; } }
+.audit ol { list-style: none; margin: 0; padding: 4px 14px 12px; max-height: 210px; overflow-y: auto; border-top: 1px solid var(--line); }
+.audit li { display: grid; grid-template-columns: 58px 1fr; gap: 8px; padding: 6px 0; border-bottom: 1px dashed var(--line); color: var(--muted); }
+.audit li:last-child { border-bottom: 0; }
+.audit li b { color: var(--ink); font-weight: 400; }
+.audit li .h { grid-column: 2; color: var(--accent); opacity: .8; }
+.audit.closed ol { display: none; }
+/* Agent avatar (eyes follow the cursor) */
+.agent { display: flex; align-items: center; gap: 14px; margin-bottom: 16px; }
+.agent svg { width: 84px; height: 84px; flex: none; overflow: visible; }
+.agent .face { fill: var(--bg); stroke: var(--ink); stroke-width: 1.5; }
+.agent .eye { fill: var(--paper); stroke: var(--ink); stroke-width: 1.2; }
+.agent .pupil { fill: var(--ink); }
+.agent .lid { fill: var(--bg); transform-box: fill-box; transform-origin: center top; transform: scaleY(0); }
+.agent.blink .lid { animation: blinklid .18s ease; }
+@keyframes blinklid { 50% { transform: scaleY(1); } }
+.agent .mouth { fill: none; stroke: var(--ink); stroke-width: 1.6; stroke-linecap: round; transition: d .3s ease; }
+.agent .antenna { stroke: var(--ink); stroke-width: 1.5; }
+.agent .bulb { fill: var(--accent); transition: fill .3s ease; }
+.agent.ok .bulb { fill: var(--ok); }
+.agent.no .bulb { fill: var(--no); }
+.agent .says { font-family: var(--display); font-style: italic; font-size: 1.15rem; line-height: 1.3; color: var(--muted); }
+
+/* Custom cursor (mouse and trackpad only) */
+.cur-dot, .cur-ring { position: fixed; left: 0; top: 0; pointer-events: none; z-index: 100; border-radius: 50%; opacity: 0; transition: opacity .2s ease; }
+.cur-dot { width: 6px; height: 6px; background: var(--ink); margin: -3px 0 0 -3px; }
+.cur-ring { width: 36px; height: 36px; margin: -18px 0 0 -18px; border: 1px solid var(--ink); display: grid; place-items: center; transition: width .25s ease, height .25s ease, margin .25s ease, background .25s ease, opacity .2s ease; }
+.cur-ring span { font-family: var(--body); font-size: 0.72rem; letter-spacing: .04em; color: var(--bg); opacity: 0; transition: opacity .2s ease; white-space: nowrap; }
+.cur-ring.big { width: 78px; height: 78px; margin: -39px 0 0 -39px; background: var(--accent); border-color: var(--accent); }
+.cur-ring.big span { color: #fff; }
+.cur-ring.big span { opacity: 1; }
+.cur-ring.press { width: 28px; height: 28px; margin: -14px 0 0 -14px; }
+@media (pointer: fine) {
+  .has-cursor .cur-dot, .has-cursor .cur-ring { opacity: 1; }
+  .has-cursor, .has-cursor a, .has-cursor button { cursor: none; }
+  .has-cursor .cur-ring.big ~ .cur-dot { opacity: 0; }
+}
+.magnet { transition: transform .25s cubic-bezier(.2,.8,.3,1), background .2s ease, color .2s ease; }
+
+
+/* Drifting pieces that settle onto lines and box edges */
+#pieces { position: fixed; inset: 0; width: 100%; height: 100%; pointer-events: none; z-index: 15; }
+
+/* Dark theme (toggle in the nav) */
+:root[data-theme="dark"] { --bg: #111110; --paper: #1a1a19; --ink: #ecebe8; --muted: #9a968f; --line: #2c2b29; --accent: #a9b6d6; --ok: #7fc4a0; --no: #e08a7c; color-scheme: dark; }
+body, .req, .ask, .audit, .sandbox, .receipt { transition: background-color .3s ease, color .3s ease, border-color .3s ease; }
+
+/* Nav tools */
+.navright { display: flex; align-items: center; gap: 28px; }
+.navtools { display: flex; gap: 8px; align-items: center; }
+.iconbtn { font: inherit; font-size: 0.8rem; border: 1px solid var(--line); background: transparent; color: var(--ink); border-radius: 99px; padding: 5px 12px; cursor: pointer; white-space: nowrap; transition: background .2s ease, color .2s ease, border-color .2s ease; }
+.iconbtn:hover { border-color: var(--ink); }
+.iconbtn[aria-pressed="true"] { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+@media (max-width: 520px) { .brand .last { display: none; } .iconbtn.hide-sm { display: none; } nav .wrap { padding-top: 20px; padding-bottom: 20px; } }
+
+/* 30-second view */
+body.quick .q-hide { display: none !important; }
+body.quick .row p { display: none; }
+.quick-note { display: none; margin: 0 0 18px; color: var(--muted); font-size: 0.9rem; }
+body.quick .quick-note { display: block; }
+
+/* Cosignal sandbox */
+.sandbox { margin: 8px 0 40px; background: var(--paper); border: 1px solid var(--line); border-radius: 4px; padding: 26px; }
+.sb-head { display: flex; justify-content: space-between; align-items: start; gap: 16px; margin-bottom: 18px; }
+.sb-head h4 { font-family: var(--display); font-weight: 400; font-size: 1.6rem; margin: 6px 0 0; line-height: 1.1; }
+.sb-policy { display: grid; grid-template-columns: auto 1fr auto; gap: 16px; align-items: center; }
+@media (max-width: 600px) { .sb-policy { grid-template-columns: 1fr auto; } .sb-policy label { grid-column: 1 / -1; } }
+.sb-policy label { font-size: 0.95rem; }
+.sb-policy input[type="range"] { width: 100%; accent-color: var(--ink); }
+.sb-policy output { font-family: var(--display); font-size: 1.6rem; font-variant-numeric: tabular-nums; min-width: 4.5em; text-align: right; }
+.sb-note { color: var(--muted); font-size: 0.85rem; margin: 6px 0 20px; }
+.sb-counts { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; padding: 16px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+@media (max-width: 600px) { .sb-counts { grid-template-columns: 1fr 1fr; } }
+.sb-counts b { display: block; font-family: var(--display); font-weight: 400; font-size: 2rem; line-height: 1; font-variant-numeric: tabular-nums; }
+.sb-counts span { color: var(--muted); font-size: 0.82rem; }
+.feed { list-style: none; margin: 0; padding: 0; }
+.tx { display: grid; grid-template-columns: 70px 1fr auto auto; gap: 14px; align-items: center; padding: 12px 0; border-bottom: 1px dashed var(--line); font-size: 0.92rem; animation: txin .35s ease; }
+.tx:last-child { border-bottom: 0; }
+@keyframes txin { from { transform: translateY(-6px); } to { transform: none; } }
+@media (max-width: 600px) { .tx { grid-template-columns: 1fr auto; } .tx .mono:first-child { display: none; } .tx .acts, .tx .st { grid-column: 1 / -1; justify-self: start; } }
+.tx .what small { display: block; color: var(--muted); font-size: 0.78rem; }
+.tx .amt { font-variant-numeric: tabular-nums; font-weight: 400; }
+.tx .st { font-family: var(--mono); font-size: 0.7rem; letter-spacing: .05em; text-transform: uppercase; padding: 3px 8px; border-radius: 99px; border: 1px solid currentColor; white-space: nowrap; }
+.tx .st.auto { color: var(--muted); }
+.tx .st.ok { color: var(--ok); }
+.tx .st.no { color: var(--no); }
+.tx.held { background: color-mix(in srgb, var(--accent) 6%, transparent); margin: 0 -10px; padding-left: 10px; padding-right: 10px; }
+.tx .acts { display: flex; gap: 6px; }
+.mini { font: inherit; font-size: 0.8rem; padding: 4px 12px; border-radius: 99px; border: 1px solid var(--ink); background: transparent; color: var(--ink); cursor: pointer; }
+.mini.solid, .mini:hover { background: var(--ink); color: var(--bg); }
+
+/* Visit receipt */
+.receipt { margin-top: 48px; max-width: 440px; background: var(--paper); border: 1px solid var(--line); border-radius: 4px; padding: 24px 26px; font-family: var(--mono); font-size: 0.78rem; position: relative; }
+.receipt h4 { font-family: var(--body); font-weight: 400; font-size: 0.72rem; letter-spacing: .16em; text-transform: uppercase; color: var(--muted); margin: 0 0 14px; display: flex; justify-content: space-between; }
+.receipt .ln { display: flex; justify-content: space-between; gap: 16px; padding: 4px 0; }
+.receipt .ln span:first-child { color: var(--muted); }
+.receipt .cut { border-top: 1px dashed var(--line); margin: 12px 0; }
+.receipt .seal { display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+.receipt .seal b { font-family: var(--display); font-style: italic; font-weight: 400; font-size: 1.4rem; color: var(--ok); }
+.receipt .fine2 { color: var(--muted); margin: 12px 0 0; font-family: var(--body); font-size: 0.8rem; }
+
+/* Command palette */
+.pal-backdrop { position: fixed; inset: 0; background: rgba(17,17,16,.28); z-index: 60; display: grid; justify-items: center; align-items: start; padding: 14vh 16px 16px; }
+.pal-backdrop[hidden] { display: none; }
+.pal { width: 100%; max-width: 560px; background: var(--paper); color: var(--ink); border: 1px solid var(--line); border-radius: 8px; box-shadow: 0 30px 80px -30px rgba(0,0,0,.5); overflow: hidden; }
+.pal input { width: 100%; font: inherit; font-size: 1rem; padding: 16px 18px; border: 0; border-bottom: 1px solid var(--line); background: transparent; color: var(--ink); outline: none; }
+.pal ul { list-style: none; margin: 0; padding: 6px; max-height: 340px; overflow-y: auto; }
+.pal li { display: flex; justify-content: space-between; gap: 12px; padding: 9px 12px; border-radius: 6px; cursor: pointer; font-size: 0.95rem; }
+.pal li small { color: var(--muted); font-size: 0.78rem; white-space: nowrap; }
+.pal li[aria-selected="true"] { background: var(--bg); }
+.pal .empty { color: var(--muted); cursor: default; }
+.pal-foot { padding: 10px 18px; color: var(--muted); border-top: 1px solid var(--line); }
+
+/* Project hover preview */
+.preview { position: fixed; left: 0; top: 0; width: 280px; z-index: 30; pointer-events: none; opacity: 0; transform: scale(.96); transition: opacity .18s ease, transform .18s ease; border-radius: 6px; overflow: hidden; box-shadow: 0 24px 50px -24px rgba(0,0,0,.45); border: 1px solid var(--line); background: var(--paper); }
+.preview.on { opacity: 1; transform: none; }
+.preview img { display: block; width: 100%; height: 170px; object-fit: cover; }
+.cover { height: 170px; padding: 18px; display: flex; flex-direction: column; justify-content: space-between; color: var(--ink);
+  background-color: var(--paper); background-image: radial-gradient(color-mix(in srgb, var(--ink) 22%, transparent) 0.6px, transparent 0.9px); background-size: 9px 9px; }
+.cover b { font-family: var(--display); font-weight: 400; font-size: 1.9rem; line-height: 1; background: var(--paper); align-self: start; padding: 2px 6px 4px 0; }
+.cover .mono { background: var(--paper); align-self: start; padding: 2px 6px 2px 0; color: var(--muted); }
+.cover .label { background: var(--paper); align-self: start; padding-right: 6px; }
+@media (max-width: 520px) { .audit { right: 12px; left: 12px; bottom: 12px; width: auto; max-width: none; } .audit ol { max-height: 140px; } }
+.demo-link { display: inline-block; margin-top: 8px; font-size: 13px; }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a class="brand" href="#top">Navedita<span class="last"> Chaudhary</span></a>
+    <div class="navright">
+      <div class="navlinks">
+        <a href="#work">Work</a>
+        <a href="#ask" class="q-hide">Ask me</a>
+        <a href="#experience">Experience</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <div class="navtools">
+        <button class="iconbtn" type="button" id="quickBtn" aria-pressed="false" data-cursor="Skim">30-second view</button>
+        <button class="iconbtn hide-sm" type="button" id="palBtn" aria-label="Open the command menu" data-cursor="Search">⌘K</button>
+        <button class="iconbtn" type="button" id="themeBtn" aria-pressed="false" aria-label="Switch to dark mode" data-cursor="Theme">Dark</button>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap">
+    <div>
+      <div class="label"><span id="greet">Hello from Cincinnati</span> · AI · Data · Product</div>
+      <h1>Building AI that people can <em>trust.</em></h1>
+      <p><strong>I'm Navedita</strong>, a Product Analyst at Ascendum and an MS Information Systems student at the University of Cincinnati. I work where AI, data and product meet, from AI agent governance to MLOps and cloud analytics.</p>
+      <div class="links">
+        <a class="u" href="#work">Selected work</a>
+        <a class="u" data-link="resume" href="#">Resume</a>
+        <a class="u" data-link="github" href="#">GitHub</a>
+        <a class="u" data-link="linkedin" href="#">LinkedIn</a>
+      </div>
+    </div>
+
+    <div class="req" id="req" aria-live="polite">
+      <div class="top"><span class="mono">cosignal · request #0001</span><span class="status pending" id="reqStatus">Awaiting you</span></div>
+      <div class="agent" id="agent">
+        <svg viewBox="0 0 64 64" aria-hidden="true">
+          <line class="antenna" x1="32" y1="9" x2="32" y2="2"></line>
+          <circle class="bulb" cx="32" cy="2" r="3"></circle>
+          <rect class="face" x="6" y="9" width="52" height="48" rx="18"></rect>
+          <g><circle class="eye" cx="22" cy="29" r="8"></circle><circle class="pupil" id="pL" cx="22" cy="29" r="3.4"></circle><rect class="lid" x="13" y="20" width="18" height="18" rx="9"></rect></g>
+          <g><circle class="eye" cx="42" cy="29" r="8"></circle><circle class="pupil" id="pR" cx="42" cy="29" r="3.4"></circle><rect class="lid" x="33" y="20" width="18" height="18" rx="9"></rect></g>
+          <path class="mouth" id="mouth" d="M25 46 Q32 49 39 46"></path>
+        </svg>
+        <div class="says" id="says">Hi. I'll need your signature.</div>
+      </div>
+      <h2>An agent wants to show you my work.</h2>
+      <dl class="mono">
+        <div><dt>agent</dt><dd>portfolio-agent</dd></div>
+        <div><dt>action</dt><dd>open 15 projects</dd></div>
+        <div><dt>policy</dt><dd>needs a human co-sign</dd></div>
+        <div><dt>reviewer</dt><dd>you</dd></div>
+      </dl>
+      <div class="actions">
+        <button class="btn solid magnet" type="button" id="approve" data-cursor="Sign">Approve</button>
+        <button class="btn magnet" type="button" id="reject" data-cursor="Decline">Reject</button>
+      </div>
+      <p class="note" id="reqNote">This is how Cosignal works: AI acts, a human signs off, and everything is logged.</p>
+      <div class="stamp" id="stamp" aria-hidden="true">co-signed</div>
+    </div>
+  </div>
+  <div class="wrap statwrap">
+    <div class="stats">
+      <div class="stat"><b>15</b><span>projects built across AI, ML, data and web</span></div>
+      <div class="stat"><b>170</b><span>retail customers mapped in a bank migration</span></div>
+      <div class="stat"><b>2nd</b><span>place at the Nucor Hackathon</span></div>
+      <div class="stat"><b>3+</b><span>years across cloud, data and product</span></div>
+    </div>
+  </div>
+</header>
+
+<section id="cosignal" class="featured">
+  <div class="wrap">
+    <div class="label">Featured project</div>
+    <h3>Cosignal</h3>
+    <p>AI agents are starting to issue refunds, pay vendors and move funds, but finance teams can't trust what they can't review.</p>
+    <p class="muted">Cosignal sits between an agent and the money. Risky actions wait for a human to approve them, and every step goes into an audit trail showing what the agent did, what it saw and who signed off. You just tried it in the card at the top of this page. I presented Cosignal at the University of Cincinnati's Friday Seminar series.</p>
+    <ol class="steps q-hide">
+      <li><strong>Propose</strong>The agent sends a payment or refund to Cosignal before it runs.</li>
+      <li><strong>Check</strong>Policy rules decide what runs automatically and what waits.</li>
+      <li><strong>Co-sign</strong>A reviewer sees the full context and approves or rejects.</li>
+      <li><strong>Record</strong>A tamper-evident log keeps every decision for auditors.</li>
+    </ol>
+    <div class="sandbox q-hide" id="sandbox">
+      <div class="sb-head">
+        <div><div class="label">Try it</div><h4>Set a policy, then review the agent's payments.</h4></div>
+        <button class="iconbtn" type="button" id="sbPause" aria-pressed="false" data-cursor="Pause">Pause</button>
+      </div>
+      <div class="sb-policy">
+        <label for="sbThreshold">Run payments automatically when they're under</label>
+        <input type="range" id="sbThreshold" min="100" max="5000" step="100" value="1000">
+        <output id="sbValue" for="sbThreshold">$1,000</output>
+      </div>
+      <p class="sb-note">Anything at or above the limit, and every payment to a new payee, waits for you. Example data only.</p>
+      <div class="sb-counts">
+        <div><b id="cAuto">0</b><span>ran automatically</span></div>
+        <div><b id="cHeld">0</b><span>waiting for you</span></div>
+        <div><b id="cOk">0</b><span>you approved</span></div>
+        <div><b id="cNo">0</b><span>you rejected</span></div>
+      </div>
+      <ul class="feed" id="feed" aria-live="polite"></ul>
+    </div>
+    <div class="links">
+      <a class="u" data-repo="cosignal" href="#">View on GitHub</a>
+      <a class="u" data-link="cosignalDemo" href="#">Try the live demo</a>
+    </div>
+  </div>
+</section>
+
+<section id="work">
+  <div class="wrap">
+    <div class="head"><div class="label">Selected work</div><h2>Projects</h2></div>
+    <p class="quick-note">30-second view: my three strongest projects. Turn it off in the top bar to see all 15.</p>
+    <div class="filters q-hide" role="group" aria-label="Filter projects by category" id="filters"></div>
+    <ul class="list" id="list"></ul>
+  </div>
+</section>
+
+<section id="ask" class="q-hide">
+  <div class="wrap">
+    <div class="head"><div class="label">Ask me</div><h2>Ask about Navedita</h2><p>Pick a question or type your own.</p></div>
+    <div class="ask">
+      <div class="chips" id="chips"></div>
+      <div class="thread" id="thread" aria-live="polite"></div>
+      <form class="askform" id="askform" autocomplete="off">
+        <label class="label" for="askInput" style="position:absolute;left:-9999px">Your question</label>
+        <input id="askInput" type="text" placeholder="e.g. What's your tech stack?" maxlength="200">
+        <button class="btn solid" type="submit">Ask</button>
+      </form>
+      <p class="fine">Answers are written by Navedita, not generated live.</p>
+    </div>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="wrap">
+    <div class="head"><div class="label">Career</div><h2>Experience</h2></div>
+    <ul class="rows">
+      <li class="row">
+        <div class="when">May 2026 – Present</div>
+        <div>
+          <h3>Product Analyst Intern</h3>
+          <div class="org">Ascendum Solutions · Cincinnati, OH</div>
+          <p>I partner with product, engineering and executive teams on requirements and roadmap for an enterprise agent-to-agent (A2A) SaaS platform. I build AI agents on Google Cloud, run sprints in Jira, and track adoption and agent telemetry in Power BI dashboards on SQL and Databricks. I also built bidirectional field mappings for 170 retail customers in a bank's lockbox migration.</p>
+        </div>
+      </li>
+      <li class="row">
+        <div class="when">Aug 2025 – May 2026</div>
+        <div>
+          <h3>Teaching Assistant</h3>
+          <div class="org">Digital Technology in Business · Lindner College of Business</div>
+          <p>Mentored 100+ undergraduate students through lab lectures and tutorials, teaching Excel modeling, SQL and Python on real business problems.</p>
+        </div>
+      </li>
+      <li class="row">
+        <div class="when">Sep 2023 – Apr 2025</div>
+        <div>
+          <h3>Cloud Analyst</h3>
+          <div class="org">Google Operations Center · Gurugram, India</div>
+          <p>Delivered business intelligence and client data to US enterprise sales and business development teams, managed Salesforce campaigns, and qualified high-potential accounts using ZoomInfo, Bloomberg, Factiva and Capital IQ.</p>
+        </div>
+      </li>
+      <li class="row">
+        <div class="when">Jun – Sep 2023</div>
+        <div>
+          <h3>Marketing Executive</h3>
+          <div class="org">Malvern Panalytical (Spectris) · Gurugram, India</div>
+          <p>Developed digital engagement programs and tracked MQL performance in Salesforce with global teams.</p>
+        </div>
+      </li>
+      <li class="row">
+        <div class="when">Education</div>
+        <div>
+          <h3>MS Information Systems</h3>
+          <div class="org">Lindner College of Business, University of Cincinnati</div>
+          <p>Focus on data analysis and AI, with coursework in machine learning systems, data mining and cybersecurity. Member of the Apex Analytics student consulting team. Earlier: BA in Technology, University of Delhi (2023).</p>
+        </div>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<section id="achievements">
+  <div class="wrap">
+    <div class="head"><div class="label">Recognition</div><h2>Achievements</h2></div>
+    <div class="ach">
+      <div>
+        <div class="big">2nd place</div>
+        <h3>Nucor Hackathon</h3>
+        <p>Analyzed financial and operational data with SQL and delivered 2026 strategy recommendations on profit margins, customer concentration, service reliability and dispatch efficiency.</p>
+      </div>
+      <div>
+        <div class="big">Speaker</div>
+        <h3>UC Friday Seminar series</h3>
+        <p>Returned to campus on behalf of Ascendum to present Cosignal and encourage students to build their own projects and ask questions early.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="skills" class="q-hide">
+  <div class="wrap">
+    <div class="head"><div class="label">Toolkit</div><h2>Skills</h2></div>
+    <ul class="rows" id="skills-list"></ul>
+  </div>
+</section>
+
+<section id="contact" class="contact">
+  <div class="wrap">
+    <div class="label">Contact</div>
+    <h2>Let's build something <em>worth trusting.</em></h2>
+    <p>Open to roles in AI product, data analytics and cloud.</p>
+    <a class="email u" data-link="email" href="#"></a>
+    <div class="links">
+      <a class="u" data-link="linkedin" href="#">LinkedIn</a>
+      <a class="u" data-link="github" href="#">GitHub</a>
+      <a class="u" data-link="resume" href="#">Resume</a>
+    </div>
+    <div class="receipt" id="receipt" aria-live="polite"></div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Navedita Chaudhary</span>
+    <span>Cincinnati, Ohio · <span id="clock" class="mono">--:--</span> local time</span>
+  </div>
+</footer>
+
+<div class="preview" id="preview" aria-hidden="true"></div>
+<div class="pal-backdrop" id="pal" hidden>
+  <div class="pal" role="dialog" aria-modal="true" aria-label="Command menu">
+    <input id="palInput" type="text" placeholder="Jump to a section, project or link…" autocomplete="off" role="combobox" aria-expanded="true" aria-controls="palList" aria-label="Search commands">
+    <ul id="palList" role="listbox"></ul>
+    <div class="pal-foot mono">↑ ↓ to move · Enter to open · Esc to close</div>
+  </div>
+</div>
+<canvas id="pieces" aria-hidden="true"></canvas>
+<div class="cur-ring" id="curRing" aria-hidden="true"><span id="curLabel"></span></div>
+<div class="cur-dot" id="curDot" aria-hidden="true"></div>
+
+<aside class="audit closed" id="audit" aria-label="Live audit log of your visit">
+  <button class="toggle" type="button" id="auditToggle" aria-expanded="false" aria-controls="auditList">
+    <span class="live"><i aria-hidden="true"></i> Audit log of your visit</span>
+    <span id="auditCount">0 entries</span>
+  </button>
+  <ol id="auditList"></ol>
+</aside>
+
+<script>
+/* ========= EDIT THESE ========= */
+const CONFIG = {
+  githubUser: "naveditachaudhary-pixel",
+  linkedin: "https://www.linkedin.com/in/navedita-chaudhary/",
+  email: "naveditachaudhary@gmail.com",
+  resume: "resume.pdf",              // upload your resume to the repo with this name
+  cosignalDemo: "https://naveditachaudhary-pixel.github.io/cosignal/"   // live demo dashboard from the cosignal repo
+};
+/* ============================== */
+
+const PROJECTS = [
+  { cat: "AI", title: "Cosignal", repo: "cosignal",
+    desc: "Human-in-the-loop approvals, policy enforcement and audit trails for AI agents that perform financial actions.",
+    tags: ["AI agents", "Governance", "Audit trail"] },
+  { cat: "AI", title: "RAG From Scratch", repo: "rag-from-scratch",
+    desc: "A RAG system built from scratch: document ingestion, local embeddings, vector search with FAISS or Chroma, and LoRA fine-tuning.",
+    tags: ["LangChain", "FAISS", "Chroma", "LoRA"] },
+  { cat: "AI", title: "AI Resume Analyzer", repo: "resume-star-trek-analyzer",
+    desc: "Parses resume PDFs and uses Google Generative AI to score them and give specific feedback.",
+    tags: ["Python", "Gemini", "PDF parsing"] },
+  { cat: "AI", title: "Local AI Agent with Memory", repo: "local-ai-agent-memory",
+    demo: "https://local-ai-agent-memory.streamlit.app",
+    desc: "A private assistant that runs fully on your laptop and remembers you between sessions, using semantic recall, automatic fact extraction and rolling summaries.",
+    tags: ["Ollama", "ChromaDB", "Streamlit", "Embeddings"] },
+  { cat: "ML", title: "Hospital Readmission Prediction", repo: "hospital-readmission-mlops",
+    desc: "End-to-end MLOps pipeline that predicts readmission risk and explains each prediction, with a Streamlit app on top.",
+    tags: ["XGBoost", "Random Forest", "MLflow", "SHAP", "Streamlit"] },
+  { cat: "ML", title: "Bike Demand Data Pipeline", repo: null,
+    desc: "Data validation, preprocessing and feature engineering with automated tests and MLflow experiment tracking.",
+    tags: ["Python", "MLflow", "Testing"] },
+  { cat: "ML", title: "Telco Churn Prediction", repo: null,
+    desc: "Compared classifiers to predict which customers will leave. Gradient Boosting won, and I mapped the drivers behind churn.",
+    tags: ["Orange", "Gradient Boosting"] },
+  { cat: "ML", title: "Customer Segmentation", repo: null,
+    desc: "K-Means and hierarchical clustering with PCA to find and visualize customer segments.",
+    tags: ["K-Means", "HAC", "PCA"] },
+  { cat: "ML", title: "GPU-Accelerated Data Science", repo: null,
+    desc: "Benchmarks of GPU workflows against CPU pandas and scikit-learn.",
+    tags: ["RAPIDS cuDF", "cuML", "CUDA"] },
+  { cat: "Data", title: "Retail Revenue Forecasting", repo: null,
+    desc: "Forecasts revenue and analyzes customer review sentiment with BigQuery ML and SQL, then turns results into business recommendations.",
+    tags: ["BigQuery ML", "SQL", "Forecasting"] },
+  { cat: "Data", title: "Pipeline Formatter", repo: null,
+    desc: "Turns opportunity CSV exports into formatted Excel reports, with automated environment setup on Windows.",
+    tags: ["Python", "Excel", "Automation"] },
+  { cat: "Product", title: "Rehearsal", repo: null,
+    desc: "Product blueprint for a business staging environment that replays and compares migration changes before go-live.",
+    tags: ["Product strategy", "Migrations", "Fintech"] },
+  { cat: "Web", title: "Pulsetide", repo: "pulsetide",
+    demo: "https://naveditachaudhary-pixel.github.io/pulsetide/",
+    desc: "A live status page for my portfolio demos. It checks each site about every 5 minutes, records uptime, response times and outages, and shows 90 days of history on a dashboard. Runs on GitHub Actions and Pages, and the same code deploys to Azure Functions and Static Web Apps.",
+    tags: ["TypeScript", "React", "GitHub Actions", "Azure Functions"] },
+  { cat: "Web", title: "GuideLens", repo: null,
+    desc: "Local discovery and recommendation web app with search, filtering, sorting and pagination.",
+    tags: ["ASP.NET Core", "C#", "LINQ", "Razor Pages"] },
+  { cat: "Web", title: "Inventory Management App", repo: "7024-Inventory-Management-Web-App",
+    desc: "Inventory tracking and management web app, from user requirements through workflows and design.",
+    tags: ["ASP.NET Core", "C#", "Razor Pages"] },
+  { cat: "Web", title: "Consultant Management Portal", repo: null, caseStudy: "Work project at Ascendum · code and data are private",
+    desc: "Consultant records lived in a master spreadsheet, so finding someone's rate, contract or compliance status meant digging through Excel. I built an internal web app that turns it into a searchable portal for about 100 consultants across client accounts.",
+    details: [
+      ["Frontend", "React and TypeScript (Vite), with a wide data table that keeps the identifying columns pinned while the rest scrolls sideways."],
+      ["Backend", "Azure Functions APIs on Azure SQL."],
+      ["Data pipeline", "An import script that syncs the master spreadsheet into SQL. I extended the schema to cover vendor, contract type, compliance (signed SOW, background check), contact details and per-consultant financials such as margin and monthly revenue."],
+      ["Hard part", "Fixed an import that was silently dropping financial and compliance fields, and replaced name-pattern guessing of each consultant's client with real data from the database."],
+      ["Delivery", "GitHub Actions CI/CD that deploys to Azure Static Web Apps on every push."]
+    ],
+    tags: ["React", "TypeScript", "Azure Functions", "Azure SQL", "Static Web Apps", "GitHub Actions"] }
+];
+
+const CATS = { All: "All", AI: "AI", ML: "Machine learning", Data: "Data", Product: "Product", Web: "Web" };
+
+const SKILLS = [
+  ["Languages", "Python, SQL, C#, Java, JavaScript, TypeScript"],
+  ["AI & ML", "Scikit-learn, XGBoost, RAG, LLMs, LangChain, Ollama, MLflow, SHAP, vector databases, Orange, NVIDIA RAPIDS"],
+  ["Cloud & data", "Google Cloud, BigQuery, BigQuery ML, Azure, Databricks, Pandas, Power BI, Excel"],
+  ["Web", "ASP.NET Core, Razor Pages, React, HTML, CSS, Bootstrap"],
+  ["Product & Agile", "PMP® certified, Jira, sprint planning, backlog grooming, scope definition"],
+  ["Tools", "Git, GitHub, GitHub Actions, Salesforce, Visual Studio, VS Code, Streamlit"],
+  ["Domains", "AI product development, system migrations, cloud analytics, business intelligence"]
+];
+
+/* Ask about Navedita: edit the answers to sound like you. "keys" are words that trigger each answer. */
+const QA = [
+  { q: "What do you work on?", keys: ["work", "job", "do you do", "role", "ascendum", "current"],
+    a: "I'm a Product Analyst at Ascendum, a Cincinnati software and digital transformation company. My work mixes data analysis and customer cloud architecture. I've worked on a bank's system migration, automated sales pipeline reporting and contributed to AI product development." },
+  { q: "What is Cosignal?", keys: ["cosignal", "agent", "approval", "audit", "featured"],
+    a: "Cosignal is my own project. It puts a human approval step and a tamper-evident audit trail between AI agents and the money they move, so finance teams can let agents act without losing control. The card at the top of this page is a small version of how it works." },
+  { q: "What's your tech stack?", keys: ["stack", "tech", "skills", "language", "tools", "python", "sql"],
+    a: "Mostly Python and SQL. For ML I use scikit-learn, XGBoost, MLflow and SHAP; for generative AI, RAG pipelines, vector databases and LangChain. On the cloud side, Google Cloud, BigQuery ML, Azure and Databricks. I've also built web apps with ASP.NET Core, React and TypeScript." },
+  { q: "Which project are you proudest of?", keys: ["proud", "best", "favorite", "favourite", "strongest"],
+    a: "Cosignal, because it tackles a real problem I see in finance: AI is a trust product. A close second is my hospital readmission MLOps pipeline, which explains every prediction with SHAP so a clinician can see why a patient was flagged." },
+  { q: "What's your background?", keys: ["background", "education", "study", "degree", "school", "university", "experience", "google"],
+    a: "I'm finishing an MS in Information Systems at the University of Cincinnati's Lindner College of Business, where I was also a TA. Before that I spent two years as a Cloud Analyst at Google Operations Center in Gurugram, and I started out in marketing at Malvern Panalytical." },
+  { q: "Are you open to new roles?", keys: ["open", "hire", "hiring", "role", "available", "opportunit", "job"],
+    a: "Yes. I'm looking at roles in AI product, data analytics and cloud. The fastest way to reach me is email, listed at the bottom of this page." },
+  { q: "Where are you based?", keys: ["where", "based", "location", "live", "city", "relocat"],
+    a: "Cincinnati, Ohio. The live clock in the footer shows my local time." }
+];
+
+const esc = s => String(s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+const repoUrl = r => `https://github.com/${CONFIG.githubUser}/${r}`;
+
+/* ---------- Visit stats (feed the receipt in Contact) ---------- */
+const STATS = { start: new Date(), sections: new Set(), projects: new Set(), questions: 0, decision: "not signed yet", sandbox: 0 };
+const TOP = ["Cosignal", "Hospital Readmission Prediction", "RAG From Scratch"];
+
+/* ---------- Audit log (FNV-1a hash chain, each entry seals the one before) ---------- */
+let prevHash = "00000000", entries = 0;
+const fnv = s => { let h = 0x811c9dc5; for (let i = 0; i < s.length; i++) { h ^= s.charCodeAt(i); h = Math.imul(h, 0x01000193); } return (h >>> 0).toString(16).padStart(8, "0"); };
+const now = () => new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit", second: "2-digit", hour12: false });
+function log(actor, text) {
+  const t = now();
+  prevHash = fnv(prevHash + t + actor + text);
+  entries++;
+  const li = document.createElement("li");
+  li.innerHTML = `<span>${t}</span><span><b>${esc(actor)}</b> ${esc(text)}</span><span class="h">#${prevHash}</span>`;
+  const ol = document.getElementById("auditList");
+  ol.appendChild(li);
+  ol.scrollTop = ol.scrollHeight;
+  document.getElementById("auditCount").textContent = `${entries} ${entries === 1 ? "entry" : "entries"}`;
+  updateReceipt();
+  track(actor, text);
+}
+/* Send the moments that matter to analytics as events (approvals, resume/LinkedIn/email clicks, projects opened, etc.). */
+const TRACKED = /^(approved request|rejected request|opened |copied email|asked |switched to the 30|approved TX|rejected TX|set the auto-run)/;
+function track(actor, text) {
+  if (actor !== "you" || !TRACKED.test(text)) return;
+  const name = text.replace(/TX-\d+ \(.*\)/, "sandbox payment").replace(/"(.*)"/, "question").slice(0, 60);
+  try { if (window.goatcounter && window.goatcounter.count) window.goatcounter.count({ path: "event: " + name, title: name, event: true }); } catch (e) {}
+}
+function updateReceipt() {
+  const box = document.getElementById("receipt"); if (!box) return;
+  const t = STATS.start.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit", second: "2-digit", hour12: false });
+  const sealed = STATS.sections.has("contact");
+  const ln = (a, b) => `<div class="ln"><span>${esc(a)}</span><span>${esc(String(b))}</span></div>`;
+  box.innerHTML = `<h4><span>Visit receipt</span><span>cosignal</span></h4>
+    ${ln("Session opened", t)}
+    ${ln("Request #0001", STATS.decision)}
+    ${ln("Sections viewed", `${STATS.sections.size} of 7`)}
+    ${ln("Projects opened", STATS.projects.size)}
+    ${ln("Questions asked", STATS.questions)}
+    ${ln("Sandbox decisions", STATS.sandbox)}
+    ${ln("Audit entries", entries)}
+    <div class="cut"></div>
+    <div class="seal"><span>${sealed ? "Sealed" : "Hash so far"} #${prevHash}</span>${sealed ? "<b>co-signed by you</b>" : ""}</div>
+    <p class="fine2">Every line of your visit is hash-chained to the one before it, the same way Cosignal records an agent's actions. Thanks for reviewing my work.</p>`;
+}
+document.getElementById("auditToggle").addEventListener("click", e => {
+  const box = document.getElementById("audit");
+  const open = box.classList.toggle("closed") === false;
+  e.currentTarget.setAttribute("aria-expanded", open);
+});
+
+/* ---------- Approval card ---------- */
+function decide(ok) {
+  const status = document.getElementById("reqStatus"), stamp = document.getElementById("stamp"), note = document.getElementById("reqNote");
+  document.getElementById("approve").disabled = true;
+  document.getElementById("reject").disabled = true;
+  status.className = "status " + (ok ? "approved" : "rejected");
+  status.textContent = ok ? "Approved" : "Rejected";
+  stamp.textContent = ok ? "co-signed" : "rejected";
+  stamp.classList.toggle("no", !ok);
+  stamp.classList.add("on");
+  setMood(ok ? "ok" : "no");
+  STATS.decision = ok ? "approved" : "rejected";
+  if (ok) {
+    note.textContent = "Signed and logged. Taking you to the work.";
+    log("you", "approved request #0001");
+    log("portfolio-agent", "opening 15 projects");
+    setTimeout(() => document.getElementById("work").scrollIntoView({ behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" }), 900);
+  } else {
+    note.textContent = "Rejected and logged. The agent stood down, but you're still free to scroll.";
+    log("you", "rejected request #0001");
+    log("portfolio-agent", "action cancelled");
+  }
+}
+document.getElementById("approve").addEventListener("click", () => decide(true));
+document.getElementById("reject").addEventListener("click", () => decide(false));
+
+/* ---------- Links ---------- */
+function setLinks() {
+  const map = { github: `https://github.com/${CONFIG.githubUser}`, linkedin: CONFIG.linkedin, resume: CONFIG.resume, cosignalDemo: CONFIG.cosignalDemo, email: `mailto:${CONFIG.email}` };
+  document.querySelectorAll("[data-link]").forEach(a => {
+    const k = a.dataset.link;
+    a.href = map[k];
+    if (k === "email") a.textContent = CONFIG.email;
+    if (k !== "email" && !map[k].startsWith("#")) { a.target = "_blank"; a.rel = "noopener"; }
+    a.addEventListener("click", () => log("you", `opened ${k}`));
+  });
+  document.querySelectorAll("[data-repo]").forEach(a => { a.href = repoUrl(a.dataset.repo); a.target = "_blank"; a.rel = "noopener"; });
+}
+
+/* ---------- Projects ---------- */
+let curCat = "All";
+function renderList(cat) {
+  curCat = cat;
+  let list = cat === "All" ? PROJECTS : PROJECTS.filter(p => p.cat === cat);
+  if (document.body.classList.contains("quick")) list = PROJECTS.filter(p => TOP.includes(p.title));
+  document.getElementById("list").innerHTML = list.map(p => {
+    const inner = `
+      <h3>${esc(p.title)}${p.repo ? '<span class="arrow" aria-hidden="true">→</span>' : ""}</h3>
+      <span class="label cat">${esc(CATS[p.cat])}</span>
+      <p>${esc(p.desc)}</p>${p.details ? `
+      <details class="case"><summary>Read the case study</summary><dl>${p.details.map(([k, v]) => `<dt>${esc(k)}</dt><dd>${esc(v)}</dd>`).join("")}</dl></details>` : ""}
+      <div class="tags">${p.tags.map(esc).join("  ·  ")}${p.repo ? "" : `<span class="soon">  ·  ${p.caseStudy ? esc(p.caseStudy) : "Repository coming soon"}</span>`}</div>`;
+    return p.repo
+      ? `<li class="item"><a href="${esc(repoUrl(p.repo))}" target="_blank" rel="noopener" data-title="${esc(p.title)}" data-cursor="View repo ↗">${inner}</a>${p.demo ? `<a class="u demo-link" href="${esc(p.demo)}" target="_blank" rel="noopener" data-title="${esc(p.title)} demo">Try the demo ↗</a>` : ""}</li>`
+      : `<li class="item" data-title="${esc(p.title)}"><div class="norepo">${inner}</div></li>`;
+  }).join("");
+}
+document.getElementById("list").addEventListener("click", e => {
+  const a = e.target.closest("a[data-title]"); if (a) { STATS.projects.add(a.dataset.title); log("you", `opened ${a.dataset.title}`); }
+});
+function renderFilters() {
+  const box = document.getElementById("filters");
+  box.innerHTML = Object.keys(CATS).map(k => {
+    const n = k === "All" ? PROJECTS.length : PROJECTS.filter(p => p.cat === k).length;
+    return `<button type="button" id="f-${k}" data-cursor="Filter" data-cat="${k}" aria-pressed="${k === "All"}">${esc(CATS[k])}<sup>${n}</sup></button>`;
+  }).join("");
+  box.addEventListener("click", e => {
+    const b = e.target.closest("button"); if (!b) return;
+    box.querySelectorAll("button").forEach(x => x.setAttribute("aria-pressed", x === b));
+    renderList(b.dataset.cat);
+    log("you", `filtered projects: ${CATS[b.dataset.cat]}`);
+  });
+}
+function renderSkills() {
+  document.getElementById("skills-list").innerHTML = SKILLS.map(([h, s]) => `
+    <li class="row"><div class="when">${esc(h)}</div><div><p>${esc(s)}</p></div></li>`).join("");
+}
+
+/* ---------- Ask ---------- */
+function answer(text) {
+  const t = text.toLowerCase();
+  let best = null, score = 0;
+  QA.forEach(item => {
+    const s = item.keys.reduce((n, k) => n + (t.includes(k) ? 1 : 0), 0) + (item.q.toLowerCase() === t ? 5 : 0);
+    if (s > score) { score = s; best = item; }
+  });
+  return best ? best.a : `I don't have a written answer for that yet. Email me at ${CONFIG.email} and I'll reply personally.`;
+}
+function ask(text) {
+  text = text.trim(); if (!text) return;
+  const th = document.getElementById("thread");
+  th.insertAdjacentHTML("beforeend", `<div class="q">${esc(text)}</div><div class="a"><div class="label who">Navedita</div><p>${esc(answer(text))}</p></div>`);
+  th.scrollTop = th.scrollHeight;
+  STATS.questions++;
+  log("you", `asked "${text.length > 34 ? text.slice(0, 34) + "…" : text}"`);
+}
+document.getElementById("chips").innerHTML = QA.map((x, i) => `<button class="chip" type="button" data-cursor="Ask" data-i="${i}">${esc(x.q)}</button>`).join("");
+document.getElementById("chips").addEventListener("click", e => { const b = e.target.closest("button"); if (b) ask(QA[b.dataset.i].q); });
+document.getElementById("askform").addEventListener("submit", e => { e.preventDefault(); const i = document.getElementById("askInput"); ask(i.value); i.value = ""; });
+/* open with one example answer so the box is never empty */
+document.getElementById("thread").innerHTML = `<div class="q">${esc(QA[0].q)}</div><div class="a"><div class="label who">Navedita</div><p>${esc(QA[0].a)}</p></div>`;
+
+/* ---------- Section views ---------- */
+const seen = new Set();
+const names = { cosignal: "Cosignal", work: "Projects", ask: "Ask me", experience: "Experience", achievements: "Achievements", skills: "Skills", contact: "Contact" };
+if ("IntersectionObserver" in window) {
+  const io = new IntersectionObserver(es => es.forEach(en => {
+    if (en.isIntersecting && !seen.has(en.target.id)) { seen.add(en.target.id); STATS.sections.add(en.target.id); log("you", `viewed ${names[en.target.id]}`); }
+  }), { threshold: 0.35 });
+  Object.keys(names).forEach(id => io.observe(document.getElementById(id)));
+}
+
+/* ---------- Clock ---------- */
+function tick() {
+  try { document.getElementById("clock").textContent = new Date().toLocaleTimeString("en-US", { timeZone: "America/New_York", hour: "numeric", minute: "2-digit" }); } catch (e) {}
+}
+
+/* ---------- Agent: eyes follow the cursor, mood follows the decision ---------- */
+const agent = document.getElementById("agent");
+const MOUTHS = { wait: "M25 46 Q32 49 39 46", hover: "M24 45 Q32 52 40 45", ok: "M22 43 Q32 55 42 43", no: "M24 49 Q32 43 40 49" };
+const SAYS = { wait: "Hi. I'll need your signature.", hover: "Oh, that button. Yes, that one.", ok: "Thank you! Opening everything.", no: "Understood. Logged and standing down." };
+let mood = "wait";
+function setMood(m) {
+  mood = m;
+  document.getElementById("mouth").setAttribute("d", MOUTHS[m]);
+  document.getElementById("says").textContent = SAYS[m];
+  agent.classList.toggle("ok", m === "ok");
+  agent.classList.toggle("no", m === "no");
+}
+const pupils = [["pL", 22, 29], ["pR", 42, 29]].map(([id, cx, cy]) => ({ el: document.getElementById(id), cx, cy }));
+function look(x, y) {
+  const svg = agent.querySelector("svg").getBoundingClientRect();
+  const sx = svg.width / 64;
+  pupils.forEach(p => {
+    const ex = svg.left + p.cx * sx, ey = svg.top + p.cy * sx;
+    const a = Math.atan2(y - ey, x - ex), d = Math.min(4, Math.hypot(x - ex, y - ey) / 40);
+    p.el.setAttribute("cx", p.cx + Math.cos(a) * d);
+    p.el.setAttribute("cy", p.cy + Math.sin(a) * d);
+  });
+}
+["approve", "reject"].forEach(id => {
+  const b = document.getElementById(id);
+  b.addEventListener("mouseenter", () => { if (mood === "wait" && id === "approve") setMood("hover"); });
+  b.addEventListener("mouseleave", () => { if (mood === "hover") setMood("wait"); });
+});
+setInterval(() => { agent.classList.add("blink"); setTimeout(() => agent.classList.remove("blink"), 200); }, 3800);
+
+/* ---------- Custom cursor + magnetic buttons (mouse/trackpad only) ---------- */
+const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+const fine = matchMedia("(pointer: fine)").matches;
+let mx = innerWidth / 2, my = innerHeight / 3, rx = mx, ry = my;
+document.addEventListener("pointermove", e => { mx = e.clientX; my = e.clientY; look(mx, my); }, { passive: true });
+if (fine) {
+  document.body.classList.add("has-cursor");
+  const ring = document.getElementById("curRing"), dot = document.getElementById("curDot"), label = document.getElementById("curLabel");
+  const loop = () => {
+    rx += (mx - rx) * (reduce ? 1 : 0.18); ry += (my - ry) * (reduce ? 1 : 0.18);
+    dot.style.transform = `translate(${mx}px, ${my}px)`;
+    ring.style.transform = `translate(${rx}px, ${ry}px)`;
+    requestAnimationFrame(loop);
+  };
+  loop();
+  const labelFor = el => el.dataset.cursor || (el.tagName === "A" ? (el.target === "_blank" ? "Open ↗" : "Go") : "Click");
+  document.addEventListener("pointerover", e => {
+    const el = e.target.closest("a, button");
+    if (el && !el.disabled && !el.matches(".u, .btn, .chip, .filters button")) { label.textContent = labelFor(el); ring.classList.add("big"); }
+  });
+  document.addEventListener("pointerout", e => {
+    const el = e.target.closest("a, button");
+    if (el && !el.contains(e.relatedTarget)) ring.classList.remove("big");
+  });
+  document.addEventListener("pointerdown", () => ring.classList.add("press"));
+  document.addEventListener("pointerup", () => ring.classList.remove("press"));
+  document.addEventListener("mouseleave", () => { ring.style.opacity = dot.style.opacity = "0"; });
+  document.addEventListener("mouseenter", () => { ring.style.opacity = dot.style.opacity = ""; });
+  if (!reduce) document.querySelectorAll(".magnet, .links a").forEach(el => {
+    el.classList.add("magnet");
+    el.addEventListener("pointermove", e => {
+      const r = el.getBoundingClientRect();
+      el.style.transform = `translate(${(e.clientX - r.left - r.width / 2) * 0.25}px, ${(e.clientY - r.top - r.height / 2) * 0.35}px)`;
+    });
+    el.addEventListener("pointerleave", () => { el.style.transform = ""; });
+  });
+}
+
+
+/* ---------- Light / dark theme ---------- */
+const store = { get(k) { try { return localStorage.getItem(k); } catch (e) { return null; } }, set(k, v) { try { localStorage.setItem(k, v); } catch (e) {} } };
+const themeBtn = document.getElementById("themeBtn");
+function setTheme(t, quiet) {
+  document.documentElement.dataset.theme = t;
+  const dark = t === "dark";
+  themeBtn.textContent = dark ? "Light" : "Dark";
+  themeBtn.setAttribute("aria-pressed", dark);
+  themeBtn.setAttribute("aria-label", dark ? "Switch to light mode" : "Switch to dark mode");
+  store.set("nc-theme", t);
+  dispatchEvent(new Event("themechange"));
+  if (!quiet) log("you", `switched to ${t} mode`);
+}
+themeBtn.addEventListener("click", () => setTheme(document.documentElement.dataset.theme === "dark" ? "light" : "dark"));
+setTheme(store.get("nc-theme") === "dark" ? "dark" : "light", true);
+
+/* ---------- Greeting by Cincinnati local time ---------- */
+(function greet() {
+  let h = 12;
+  try { h = +new Intl.DateTimeFormat("en-US", { timeZone: "America/New_York", hour: "numeric", hourCycle: "h23" }).format(new Date()); } catch (e) {}
+  const part = h >= 5 && h < 12 ? "Good morning" : h >= 12 && h < 17 ? "Good afternoon" : "Good evening";
+  document.getElementById("greet").textContent = `${part} from Cincinnati`;
+})();
+
+/* ---------- 30-second view ---------- */
+const quickBtn = document.getElementById("quickBtn");
+function setQuick(on) {
+  document.body.classList.toggle("quick", on);
+  quickBtn.setAttribute("aria-pressed", on);
+  quickBtn.textContent = on ? "Full view" : "30-second view";
+  renderList(on ? "All" : curCat);
+  if (on) { document.querySelectorAll("#filters button").forEach(x => x.setAttribute("aria-pressed", x.dataset.cat === "All")); scrollTo({ top: 0, behavior: "smooth" }); }
+  log("you", on ? "switched to the 30-second view" : "switched to the full view");
+}
+quickBtn.addEventListener("click", () => setQuick(!document.body.classList.contains("quick")));
+
+/* ---------- Command palette (Cmd/Ctrl + K) ---------- */
+const pal = document.getElementById("pal"), palInput = document.getElementById("palInput"), palList = document.getElementById("palList");
+let palItems = [], palSel = 0, palReturn = null;
+const go = id => { closePal(); document.getElementById(id).scrollIntoView({ behavior: "smooth" }); };
+const openUrl = url => { const a = document.createElement("a"); a.href = url; a.target = "_blank"; a.rel = "noopener"; document.body.appendChild(a); a.click(); a.remove(); };
+function commands() {
+  const c = [
+    ["Cosignal", "Section", () => go("cosignal")], ["Try the Cosignal sandbox", "Section", () => go("sandbox")],
+    ["Projects", "Section", () => go("work")], ["Ask about Navedita", "Section", () => go("ask")],
+    ["Experience", "Section", () => go("experience")], ["Achievements", "Section", () => go("achievements")],
+    ["Skills", "Section", () => go("skills")], ["Contact", "Section", () => go("contact")],
+    ["Resume", "Link", () => { closePal(); log("you", "opened resume"); openUrl(CONFIG.resume); }],
+    ["LinkedIn", "Link", () => { closePal(); log("you", "opened linkedin"); openUrl(CONFIG.linkedin); }],
+    ["GitHub", "Link", () => { closePal(); log("you", "opened github"); openUrl(`https://github.com/${CONFIG.githubUser}`); }],
+    ["Copy email address", CONFIG.email, async () => {
+      try { await navigator.clipboard.writeText(CONFIG.email); palInput.value = ""; palInput.placeholder = "Email copied: " + CONFIG.email; renderPal(); log("you", "copied email"); }
+      catch (e) { go("contact"); }
+    }],
+    [document.documentElement.dataset.theme === "dark" ? "Switch to light mode" : "Switch to dark mode", "Setting", () => { closePal(); themeBtn.click(); }],
+    [document.body.classList.contains("quick") ? "Switch to the full view" : "Switch to the 30-second view", "Setting", () => { closePal(); quickBtn.click(); }]
+  ];
+  PROJECTS.forEach(p => c.push([p.title, p.repo ? "Project · GitHub" : "Project", () => {
+    if (p.repo) { closePal(); STATS.projects.add(p.title); log("you", `opened ${p.title}`); openUrl(repoUrl(p.repo)); } else go("work");
+  }]));
+  QA.forEach(x => c.push([x.q, "Ask", () => { go("ask"); if (document.body.classList.contains("quick")) setQuick(false); setTimeout(() => ask(x.q), 300); }]));
+  return c;
+}
+function renderPal() {
+  const words = palInput.value.toLowerCase().split(/\s+/).filter(Boolean);
+  palItems = commands().filter(([t, k]) => words.every(w => (t + " " + k).toLowerCase().includes(w)));
+  palSel = Math.min(palSel, Math.max(0, palItems.length - 1));
+  palList.innerHTML = palItems.length
+    ? palItems.map(([t, k], i) => `<li role="option" id="pal-${i}" aria-selected="${i === palSel}" data-i="${i}"><span>${esc(t)}</span><small>${esc(k)}</small></li>`).join("")
+    : `<li class="empty">No matches. Try "projects", "resume" or "email".</li>`;
+  palInput.setAttribute("aria-activedescendant", palItems.length ? `pal-${palSel}` : "");
+  const cur = document.getElementById(`pal-${palSel}`); if (cur) cur.scrollIntoView({ block: "nearest" });
+}
+function openPal() { palReturn = document.activeElement; pal.hidden = false; palInput.value = ""; palInput.placeholder = "Jump to a section, project or link…"; palSel = 0; renderPal(); palInput.focus(); log("you", "opened the command menu"); }
+function closePal() { if (pal.hidden) return; pal.hidden = true; if (palReturn && palReturn.focus) palReturn.focus({ preventScroll: true }); }
+document.getElementById("palBtn").addEventListener("click", openPal);
+palInput.addEventListener("input", () => { palSel = 0; renderPal(); });
+palList.addEventListener("click", e => { const li = e.target.closest("li[data-i]"); if (li) palItems[+li.dataset.i][2](); });
+palList.addEventListener("pointermove", e => { const li = e.target.closest("li[data-i]"); if (li && +li.dataset.i !== palSel) { palSel = +li.dataset.i; renderPal(); } });
+pal.addEventListener("click", e => { if (e.target === pal) closePal(); });
+document.addEventListener("keydown", e => {
+  if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k") { e.preventDefault(); pal.hidden ? openPal() : closePal(); return; }
+  if (pal.hidden) return;
+  if (e.key === "Escape") { e.preventDefault(); closePal(); }
+  else if (e.key === "ArrowDown") { e.preventDefault(); palSel = (palSel + 1) % Math.max(1, palItems.length); renderPal(); }
+  else if (e.key === "ArrowUp") { e.preventDefault(); palSel = (palSel - 1 + palItems.length) % Math.max(1, palItems.length); renderPal(); }
+  else if (e.key === "Enter" && palItems[palSel]) { e.preventDefault(); palItems[palSel][2](); }
+  else if (e.key === "Tab") { e.preventDefault(); palInput.focus(); }
+});
+if (!/Mac|iPhone|iPad/.test(navigator.platform || navigator.userAgent)) document.getElementById("palBtn").textContent = "Ctrl K";
+
+/* ---------- Project hover previews (add img: "images/name.png" to a project to show a screenshot) ---------- */
+(function previews() {
+  if (!matchMedia("(pointer: fine)").matches) return;
+  const box = document.getElementById("preview"), list = document.getElementById("list");
+  let shown = null;
+  list.addEventListener("pointermove", e => {
+    const li = e.target.closest("[data-title]");
+    // No preview over an opened case study: it would cover the text being read.
+    if (!li || li.querySelector("details[open]")) { box.classList.remove("on"); shown = null; return; }
+    const p = PROJECTS.find(x => x.title === li.dataset.title); if (!p) return;
+    if (shown !== p) {
+      shown = p;
+      box.innerHTML = p.img
+        ? `<img src="${esc(p.img)}" alt="">`
+        : `<div class="cover"><span class="label">${esc(CATS[p.cat])}</span><b>${esc(p.title)}</b><span class="mono">${p.tags.slice(0, 3).map(esc).join(" · ")}</span></div>`;
+    }
+    const w = 280, h = box.offsetHeight || 172;
+    let x = e.clientX + 28, y = e.clientY - h / 2;
+    if (x + w > innerWidth - 12) x = e.clientX - w - 28;
+    y = Math.max(12, Math.min(innerHeight - h - 12, y));
+    box.style.transform = `translate(${x}px, ${y}px)`;
+    box.classList.add("on");
+  });
+  list.addEventListener("pointerleave", () => { box.classList.remove("on"); shown = null; });
+  addEventListener("scroll", () => { box.classList.remove("on"); shown = null; }, { passive: true });
+})();
+
+/* ---------- Cosignal sandbox: example payments against the visitor's policy ---------- */
+(function sandbox() {
+  const feed = document.getElementById("feed"), slider = document.getElementById("sbThreshold"), out = document.getElementById("sbValue"), pauseBtn = document.getElementById("sbPause");
+  const money = n => n.toLocaleString("en-US", { style: "currency", currency: "USD", maximumFractionDigits: 0 });
+  const KINDS = [["Cloud hosting invoice", 200, 1800], ["Office supplies order", 60, 600], ["Customer refund", 300, 5200], ["Contractor payout", 800, 6500],
+                 ["Software license renewal", 400, 3000], ["Travel reimbursement", 120, 1400], ["Equipment purchase", 900, 7200], ["Marketing vendor invoice", 500, 4200]];
+  const AGENTS = ["billing-agent", "payables-agent", "refunds-agent"];
+  let limit = 1000, paused = false, visible = false, n = 1040;
+  const c = { auto: 0, held: 0, ok: 0, no: 0 };
+  const paint = () => { ["auto", "held", "ok", "no"].forEach(k => document.getElementById("c" + k[0].toUpperCase() + k.slice(1)).textContent = c[k]); };
+  function propose() {
+    const [what, lo, hi] = KINDS[Math.floor(Math.random() * KINDS.length)];
+    const amt = Math.round((lo + Math.random() * (hi - lo)) / 5) * 5, fresh = Math.random() < .18, held = fresh || amt >= limit;
+    const id = `TX-${++n}`, agent = AGENTS[Math.floor(Math.random() * AGENTS.length)];
+    const li = document.createElement("li");
+    li.className = "tx" + (held ? " held" : "");
+    li.dataset.id = id; li.dataset.amt = amt;
+    li.innerHTML = `<span class="mono">${id}</span>
+      <span class="what">${esc(what)}<small>${agent}${fresh ? " · new payee" : ""}</small></span>
+      <span class="amt">${money(amt)}</span>
+      ${held ? `<span class="acts"><button class="mini solid" type="button" data-act="ok" data-cursor="Approve">Approve</button><button class="mini" type="button" data-act="no" data-cursor="Reject">Reject</button></span>`
+             : `<span class="st auto">ran automatically</span>`}`;
+    feed.prepend(li);
+    held ? c.held++ : c.auto++;
+    while (feed.children.length > 6) {
+      const last = feed.lastElementChild;
+      if (last.classList.contains("held") && last.querySelector(".acts")) c.held--;
+      last.remove();
+    }
+    paint();
+  }
+  feed.addEventListener("click", e => {
+    const b = e.target.closest("button[data-act]"); if (!b) return;
+    const li = b.closest(".tx"), ok = b.dataset.act === "ok";
+    li.querySelector(".acts").outerHTML = `<span class="st ${ok ? "ok" : "no"}">${ok ? "approved by you" : "rejected by you"}</span>`;
+    c.held--; ok ? c.ok++ : c.no++; STATS.sandbox++; paint();
+    log("you", `${ok ? "approved" : "rejected"} ${li.dataset.id} (${money(+li.dataset.amt)})`);
+  });
+  slider.addEventListener("input", () => { limit = +slider.value; out.textContent = money(limit); });
+  slider.addEventListener("change", () => log("you", `set the auto-run limit to ${money(limit)}`));
+  pauseBtn.addEventListener("click", () => { paused = !paused; pauseBtn.textContent = paused ? "Resume" : "Pause"; pauseBtn.setAttribute("aria-pressed", paused); });
+  for (let i = 0; i < 4; i++) propose();   // open with a few example payments so the panel is never empty
+  if ("IntersectionObserver" in window) new IntersectionObserver(es => es.forEach(en => visible = en.isIntersecting), { threshold: .2 }).observe(document.getElementById("sandbox"));
+  setInterval(() => { if (visible && !paused && !document.hidden && !document.body.classList.contains("quick")) propose(); }, 2400);
+})();
+
+/* ---------- Black grain: dust drifts; on hover it settles into an underline or a button outline ---------- */
+(function grain() {
+  if (matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  const cv = document.getElementById("pieces"), ctx = cv.getContext("2d");
+  let W, H;
+  const size = () => { const dpr = Math.min(2, devicePixelRatio || 1); W = innerWidth; H = innerHeight; cv.width = W * dpr; cv.height = H * dpr; ctx.setTransform(dpr, 0, 0, dpr, 0, 0); };
+  size(); addEventListener("resize", size);
+  const N = innerWidth < 700 ? 55 : 95;
+  const rnd = (a, b) => a + Math.random() * (b - a);
+  const P = Array.from({ length: N }, () => ({
+    x: rnd(0, W), y: rnd(0, H), vx: rnd(-.2, .2), vy: rnd(-.2, .2),
+    r: Math.random() < .8 ? rnd(.5, 1.1) : rnd(1.2, 1.9),
+    a: rnd(.35, .9), jx: rnd(-1, 1), jy: rnd(-1, 1), slot: -1
+  }));
+  let mx = -999, my = -999, form = null;
+  addEventListener("pointermove", e => { mx = e.clientX; my = e.clientY; }, { passive: true });
+  const tok = v => getComputedStyle(document.documentElement).getPropertyValue(v).trim();
+  let INK = tok("--ink"), BG = tok("--bg");
+  addEventListener("themechange", () => { INK = tok("--ink"); BG = tok("--bg"); });
+
+  /* Intro: grains spell the name, hold, then scatter. Once per visit; a click or key skips it. */
+  let intro = null;
+  function startIntro() {
+    let seenIntro = false;
+    try { seenIntro = sessionStorage.getItem("nc-intro") === "1"; sessionStorage.setItem("nc-intro", "1"); } catch (e) {}
+    if (seenIntro || scrollY > 40) return;
+    const off = document.createElement("canvas"); off.width = W; off.height = H;
+    const o = off.getContext("2d");
+    const fs = Math.min(W * (W < 700 ? .2 : .15), 180);
+    o.font = `italic ${fs}px "Instrument Serif", Georgia, serif`;
+    o.textAlign = "center"; o.textBaseline = "middle"; o.fillStyle = "#000";
+    o.fillText("Navedita", W / 2, H * .44);
+    const img = o.getImageData(0, 0, W, H).data, pts = [], gap = W < 700 ? 2.6 : 2.4;
+    for (let y = 0; y < H; y += gap) for (let x = 0; x < W; x += gap) if (img[((y | 0) * W + (x | 0)) * 4 + 3] > 140) pts.push([x, y]);
+    for (let i = pts.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [pts[i], pts[j]] = [pts[j], pts[i]]; }
+    const use = pts.slice(0, W < 700 ? 900 : 1700);
+    if (!use.length) return;
+    intro = { f: 0, veil: 0, parts: use.map(([tx, ty]) => {
+      const a = rnd(0, 6.28), d = rnd(.6, 1) * Math.max(W, H);
+      return { x: W / 2 + Math.cos(a) * d, y: H / 2 + Math.sin(a) * d, tx, ty, vx: 0, vy: 0, r: rnd(.5, 1.15), a: rnd(.5, 1), delay: rnd(0, 25) };
+    }) };
+    const skip = () => { if (intro && intro.f < 150) intro.f = 150; };
+    addEventListener("pointerdown", skip, { once: true }); addEventListener("keydown", skip, { once: true }); addEventListener("wheel", skip, { once: true, passive: true });
+  }
+  function drawIntro() {
+    const I = intro; I.f++;
+    // veil: fades in quickly, holds while the name is readable, fades out as the dust scatters
+    I.veil = I.f < 150 ? Math.min(.9, I.veil + .08) : Math.max(0, I.veil - .03);
+    ctx.globalAlpha = I.veil; ctx.fillStyle = BG; ctx.fillRect(0, 0, W, H);
+    ctx.fillStyle = INK;
+    let alive = 0;
+    for (const q of I.parts) {
+      if (I.f < 150) {
+        if (I.f > q.delay) { q.vx = (q.vx + (q.tx - q.x) * .05) * .78; q.vy = (q.vy + (q.ty - q.y) * .05) * .78; q.x += q.vx; q.y += q.vy; }
+      } else {
+        if (I.f === 150) { const a = rnd(0, 6.28), k = rnd(1, 5); q.vx = Math.cos(a) * k; q.vy = Math.sin(a) * k - 1; }
+        q.vx *= .985; q.vy = q.vy * .985 + .02; q.x += q.vx; q.y += q.vy; q.a -= .012;
+      }
+      if (q.a <= 0) continue;
+      alive++;
+      ctx.globalAlpha = Math.min(1, q.a);
+      ctx.beginPath(); ctx.arc(q.x, q.y, q.r, 0, 6.2832); ctx.fill();
+    }
+    ctx.globalAlpha = 1;
+    if (I.f > 150 && (!alive || I.f > 260)) intro = null;
+  }
+  (document.fonts && document.fonts.ready ? document.fonts.ready : Promise.resolve()).then(startIntro);
+
+  const LINE = ".u, .filters button";
+  const RING = ".btn, .chip";
+  function start(el, kind) {
+    const r = el.getBoundingClientRect(), cx = r.left + r.width / 2, cy = r.top + r.height / 2;
+    const per = 2 * Math.max(0, r.width - r.height) + Math.PI * (r.height + 12);
+    const cap = Math.min(N, Math.floor((kind === "line" ? r.width : per) / 2.6));
+    form = { el, kind, cap };
+    P.forEach(q => q.slot = -1);
+    const near = [...P].sort((a, b) => Math.hypot(a.x - cx, a.y - cy) - Math.hypot(b.x - cx, b.y - cy)).slice(0, cap);
+    const key = kind === "line" ? (q => q.x) : (q => (Math.atan2(q.y - cy, q.x - cx) + 7.854) % 6.2832);
+    near.sort((a, b) => key(a) - key(b)).forEach((q, i) => q.slot = i);
+  }
+  function stop() {
+    if (!form) return;
+    form = null;
+    P.forEach(q => { const k = rnd(.4, 1.6), t = rnd(0, 6.28); q.vx = Math.cos(t) * k; q.vy = Math.sin(t) * k - .3; });
+  }
+  document.addEventListener("pointerover", e => {
+    const el = e.target.closest(LINE + ", " + RING);
+    if (!el || el.disabled || (form && form.el === el)) return;
+    start(el, el.matches(RING) ? "ring" : "line");
+  });
+  /* The grains stay with the last link or button the visitor hovered or clicked, until they pick another one. */
+  document.addEventListener("click", e => {
+    const el = e.target.closest(LINE + ", " + RING);
+    if (el && !el.disabled && !(form && form.el === el)) start(el, el.matches(RING) ? "ring" : "line");
+  });
+
+  function pill(r, s) {
+    const R = Math.min(r.height / 2, r.width / 2), L = r.width - 2 * R, per = 2 * L + 2 * Math.PI * R;
+    let d = s * per;
+    const l = r.left + R, rt = r.right - R, cy = r.top + R;
+    if (d < L) return { x: l + d, y: r.top };
+    d -= L;
+    if (d < Math.PI * R) { const t = -Math.PI / 2 + d / R; return { x: rt + Math.cos(t) * R, y: cy + Math.sin(t) * R }; }
+    d -= Math.PI * R;
+    if (d < L) return { x: rt - d, y: r.bottom };
+    d -= L;
+    const t = Math.PI / 2 + d / R; return { x: l + Math.cos(t) * R, y: cy + Math.sin(t) * R };
+  }
+  function target(q) {
+    if (q.slot < 0 || !form.el.isConnected) return null;
+    const r = form.el.getBoundingClientRect(), n = form.cap;
+    if (r.bottom < -20 || r.top > H + 20 || (r.width === 0 && r.height === 0)) return null;   // off screen: drift until it's back
+    if (form.kind === "line") {
+      const gap = r.width / n;
+      return { x: r.left + gap * (q.slot + .5) + q.jx * gap * .4, y: r.bottom + q.jy * .9 };
+    }
+    const off = 5, o = { left: r.left - off, right: r.right + off, top: r.top - off, bottom: r.bottom + off };
+    o.width = o.right - o.left; o.height = o.bottom - o.top;
+    const pt = pill(o, (q.slot + .5) / n);
+    return { x: pt.x + q.jx * .9, y: pt.y + q.jy * .9 };
+  }
+
+  function step() {
+    ctx.clearRect(0, 0, W, H);
+    if (intro) drawIntro();
+    ctx.fillStyle = INK;
+    for (const q of P) {
+      const t = form && target(q);
+      if (t) {
+        const k = .05 + q.r * .015;                       // finer grains arrive a touch later, like settling dust
+        q.vx = (q.vx + (t.x - q.x) * k) * .74; q.vy = (q.vy + (t.y - q.y) * k) * .74;
+        q.x += q.vx + rnd(-.08, .08); q.y += q.vy + rnd(-.08, .08);
+      } else {
+        q.vx += rnd(-.035, .035); q.vy += rnd(-.035, .035);
+        const dx = q.x - mx, dy = q.y - my, d = Math.hypot(dx, dy);
+        if (d < 90 && d > 0) { q.vx += dx / d * .1; q.vy += dy / d * .1; }
+        q.vx *= .98; q.vy *= .98;
+        const sp = Math.hypot(q.vx, q.vy), max = form ? .9 : .55;
+        if (sp > max && !form) { q.vx *= max / sp; q.vy *= max / sp; }
+        q.x += q.vx; q.y += q.vy;
+        if (q.x < 0) q.x += W; else if (q.x > W) q.x -= W;
+        if (q.y < 0) q.y += H; else if (q.y > H) q.y -= H;
+      }
+      ctx.globalAlpha = t ? Math.min(1, q.a + .15) : q.a;
+      ctx.beginPath(); ctx.arc(q.x, q.y, q.r, 0, 6.2832); ctx.fill();
+    }
+    ctx.globalAlpha = 1;
+    requestAnimationFrame(step);
+  }
+  step();
+})();
+
+renderFilters(); renderList("All"); renderSkills(); setLinks();
+log("system", "visitor session opened");
+log("portfolio-agent", "requested co-sign #0001");
+tick(); setInterval(tick, 30000);
+</script>
+</body>
+</html>
